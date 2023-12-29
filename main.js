@@ -1,1 +1,0 @@
-import*as t from"@wordpress/interactivity";var e={998:e=>{e.exports=t}},o={};function r(t){var s=o[t];if(void 0!==s)return s.exports;var n=o[t]={exports:{}};return e[t](n,n.exports,r),n.exports}Promise.resolve().then(r.bind(r,998)).then((({store:t})=>{const{state:e}=t("jon/the-block",{state:{counter:0},actions:{inc(){e.counter+=1},dec(){e.counter-=1}}});console.log({state:e})}));
