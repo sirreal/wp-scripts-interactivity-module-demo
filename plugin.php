@@ -4,10 +4,8 @@
  */
 
 add_action(
-	'init', 
+	'init',
 	function () {
 		register_block_type_from_metadata(__DIR__ . '/build/block.json');
 	}
 );
-
-

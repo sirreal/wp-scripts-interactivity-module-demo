@@ -3,8 +3,8 @@
   "apiVersion": 3,
   "title": "Jon's cool counter",
   "name": "jon/the-block",
-  "editorScript": "file:./index.js",
-  "viewModule": "file:./view.js",
+  "editorScript": "file:./index.tsx",
+  "viewModule": "file:./view.mts",
   "render": "file:./render.php",
   "category": "text"
 }

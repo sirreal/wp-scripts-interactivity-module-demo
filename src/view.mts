@@ -1,17 +1,28 @@
-import("@wordpress/interactivity").then(({ store }) => {
-  const { state } = store("jon/the-block", {
-    state: {
-      counter: 0,
-    },
+async function init() {
+  if ((init as any).init) {
+    return;
+  }
+  (init as any).init = true;
+
+  const interactivity = await import("@wordpress/interactivity");
+  interactivity.store<any>("jon/the-block", {
     actions: {
       inc() {
-        state.counter += 1;
+        const ctx = interactivity.getContext<any>();
+        ctx.val += 1;
       },
       dec() {
-        state.counter -= 1;
+        const ctx = interactivity.getContext<any>();
+        ctx.val -= 1;
       },
     },
   });
+}
 
-  console.log({ state });
-});
+document
+  .querySelector('[data-wp-interactive*=\'"namespace":"jon/the-block"\']')!
+  .addEventListener("mouseenter", init, { once: true });
+
+document
+  .querySelector('[data-wp-interactive*=\'"namespace":"jon/the-block"\']')!
+  .addEventListener("focus", init, { once: true });
