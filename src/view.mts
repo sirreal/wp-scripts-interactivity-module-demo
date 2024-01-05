@@ -25,4 +25,4 @@ document
 
 document
   .querySelector('[data-wp-interactive*=\'"namespace":"jon/the-block"\']')!
-  .addEventListener("focus", init, { once: true });
+  .addEventListener("focusin", init, { once: true });
