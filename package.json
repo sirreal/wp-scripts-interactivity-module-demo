@@ -1,24 +1,24 @@
 {
-  "name": "test-dewp",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "clean": "rm -fr build",
-    "build": "npm run clean; wp-scripts -- build --experimental-modules",
-    "start": "wp-scripts -- start --experimental-modules --hot",
-    "wp-scripts": "wp-scripts"
-  },
-  "author": "",
-  "license": "MIT",
-  "devDependencies": {
-    "@wordpress/browserslist-config": "^5.35.0",
-    "@wordpress/scripts": "^27.3.0",
-    "prettier": "^3.1.1"
-  },
-  "dependencies": {
-    "@wordpress/blocks": "^12.25.0",
-    "@wordpress/interactivity": "^5.1.0",
-    "react": "^18.2.0"
-  }
+	"name": "test-dewp",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"clean": "rm -fr build",
+		"build": "npm run clean; wp-scripts -- build --experimental-modules",
+		"start": "wp-scripts -- start --experimental-modules --hot",
+		"wp-scripts": "wp-scripts"
+	},
+	"author": "",
+	"license": "MIT",
+	"devDependencies": {
+		"@wordpress/browserslist-config": "^5.35.0",
+		"@wordpress/scripts": "^27.3.0",
+		"prettier": "^3.1.1"
+	},
+	"dependencies": {
+		"@wordpress/blocks": "^12.25.0",
+		"@wordpress/interactivity": "^5.1.0",
+		"react": "^18.2.0"
+	}
 }

@@ -1,9 +1,9 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "title": "Demo block",
-  "name": "sirreal/demo-block",
-  "editorScript": "file:./index.ts",
-  "viewScriptModule": "file:./view.mts",
-  "render": "file:./render.php"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"title": "Demo block",
+	"name": "sirreal/demo-block",
+	"editorScript": "file:./index.ts",
+	"viewScriptModule": "file:./view.mts",
+	"render": "file:./render.php"
 }
