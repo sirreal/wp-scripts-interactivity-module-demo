@@ -1,12 +1,8 @@
-import "./shared.css";
-import "./different-name-editor.css";
-
-import * as bs from "@wordpress/blocks";
 import * as React from "react";
-
 import metadata from "./block.json";
+import { registerBlockType } from "@wordpress/blocks";
 
-bs.registerBlockType(metadata, {
+registerBlockType(metadata, {
   edit() {
     return <div>counter</div>;
   },
