@@ -1,3 +1,6 @@
+import "./shared.css";
+import "./different-name-editor.css";
+
 import * as bs from "@wordpress/blocks";
 import * as React from "react";
 
