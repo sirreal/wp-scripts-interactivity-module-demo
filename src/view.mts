@@ -1,25 +1,30 @@
-import { getContext, store } from "@wordpress/interactivity";
-import apiFetch from "@wordpress/api-fetch";
-import * as a11y from "@wordpress/a11y";
-import * as blob from "@wordpress/blob";
+import { getContext, store } from '@wordpress/interactivity';
+import apiFetch from '@wordpress/api-fetch';
+import * as a11y from '@wordpress/a11y';
+import * as blob from '@wordpress/blob';
 
 console.log({ a11y, blob, apiFetch });
 
 const getCtx = getContext<{
-  val: number;
-  open: boolean;
-  search: string;
-  result: any;
-  path: string;
+	val: number;
+	open: boolean;
+	search: string;
+	result: any;
+	path: string;
 }>;
-store("myplugin/counter-block", {
+
+store("myplugin/demo", {
   state: {
     get buttonText() {
-      return `Toggle that <describe> below ${getCtx().open ? "⬆" : "⬇"}`;
+      return withScope(()=>
+      `Toggle that <describe> below ${getCtx().open ? "⬆" : "⬇"}`
+      )()
     },
     get resultText() {
+      console.log({ctx: getCtx()})
       return JSON.stringify(getCtx().result, undefined, 2);
     },
+    x:'x'
   },
   increment() {
     getCtx().val += 1;
@@ -27,7 +32,7 @@ store("myplugin/counter-block", {
   decrement() {
     getCtx().val -= 1;
   },
-  expand() {
+  onButtonClick() {
     getCtx().open = !getCtx().open;
   },
   onToggle(e) {
@@ -46,4 +51,5 @@ store("myplugin/counter-block", {
       getCtx().result = e;
     }
   },
+});
 });

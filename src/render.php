@@ -1,15 +1,29 @@
 <?php
-$id = wp_unique_id('myplugin/counter');
-?><div data-wp-init='onChangePath' data-wp-interactive='myplugin/counter-block'
-<?php
-echo get_block_wrapper_attributes();
-echo wp_interactivity_data_wp_context(
-    array(
-        'val' => 0,
-        'open' => false,
-        'result' => null
-    )
-) ?>>
+$ns = 'myplugin/demo';
+wp_interactivity_state($ns, array('id'=>'x'));
+?>
+<script type="module">
+// import apiFetch from '@wordpress/api-fetch';
+// apiFetch.use( apiFetch.createRootURLMiddleware( "<?php echo sanitize_url(get_rest_url()); ?>" ) );
+// apiFetch.nonceMiddleware = apiFetch.createNonceMiddleware( "<?php echo wp_create_nonce('wp_rest'); ?>" );
+// apiFetch.use( apiFetch.nonceMiddleware );
+// apiFetch.use( apiFetch.mediaUploadMiddleware );
+// apiFetch.nonceEndpoint = "<?php echo admin_url('admin-ajax.php?action=rest-nonce'); ?>";
+// console.log({apiFetch})
+</script>
+<div
+    data-wp-interactive='<?php echo $ns; ?>'
+    data-wp-init='onChangePath'
+    <?php
+    echo get_block_wrapper_attributes();
+    echo wp_interactivity_data_wp_context(
+        array(
+            'val' => 0,
+            'open' => false,
+            'result' => null
+        )
+    ) ?>
+>
 <div>
     <label>
         API path
@@ -18,17 +32,15 @@ echo wp_interactivity_data_wp_context(
             value='/wp/v2/block-types'
          />
     </label>
-    <button type="button" data-wp-text="state.buttonText" data-wp-on--click='expand'></button>
+    <button type="button" data-wp-text="state.buttonText" data-wp-on--click='onButtonClick'></button>
 </div>
 <div>
-    <input readonly type='number' data-wp-bind--value='context.val' />
+    <input readonly type='number' data-wp-bind--value='context.val' value='0' />
     <button type='button' data-wp-on--click='increment'>+</button>
     <button type='button' data-wp-on--click='decrement'>-</button>
 
-    <details id="<?php esc_attr_e($id) ?>" data-wp-bind--open='context.open' data-wp-on--toggle='onToggle'>
-        <summary>Stuff in here, this can be toggled below</summary>
-
-        <h1>Wow, it expanded!</h1>
+    <details data-wp-bind--aria-open='context.open' data-wp-bind--id='state.id' data-wp-bind--open='context.open' data-wp-on--toggle='onToggle'>
+        <summary>Stuff in here, toggle the details <em>OR</em> toggle them above!</summary>
         <pre data-wp-text='state.resultText'></pre>
     </details>
 </div>
