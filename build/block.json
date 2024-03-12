@@ -1,0 +1,10 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "title": "Demo block",
+  "name": "myplugin/counter-block",
+  "editorScript": "file:./index.js",
+  "viewScriptModule": "file:./view.js",
+  "render": "file:./render.php",
+  "supports": {"interactivity":true}
+}
